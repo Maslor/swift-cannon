@@ -1,9 +1,9 @@
 //
 //  GameViewController.swift
-//  SpriteKit-intro
+//  SpriteKitIntro
 //
-//  Created by Gabriel Freire on 11/02/16.
-//  Copyright (c) 2016 maslor. All rights reserved.
+//  Created by LDC on 12/7/15.
+//  Copyright (c) 2015 LDC. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let scene = GameScene(fileNamed:"GameScene") {
+        if let scene = GameScene(fileNamed:"MainMenu") {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
