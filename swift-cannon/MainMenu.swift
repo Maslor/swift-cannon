@@ -9,5 +9,10 @@
 import SpriteKit
 
 class MainMenu: SKScene {
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let game: GameScene = GameScene(fileNamed:"GameScene")!
+        self.view?.presentScene(game)
+    }
 
 }
