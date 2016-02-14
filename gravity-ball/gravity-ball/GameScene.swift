@@ -25,5 +25,6 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        ball.physicsBody?.applyForce(CGVector(dx: 0,dy: -500))
     }
 }
