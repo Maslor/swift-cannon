@@ -16,6 +16,7 @@
 		0335BB3C1C6C245D003F8B57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0335BB3A1C6C245D003F8B57 /* LaunchScreen.storyboard */; };
 		0335BB471C6C245D003F8B57 /* swift_cannonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335BB461C6C245D003F8B57 /* swift_cannonTests.swift */; };
 		0335BB521C6C245D003F8B57 /* swift_cannonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335BB511C6C245D003F8B57 /* swift_cannonUITests.swift */; };
+		034902311C71F55C003B1104 /* Ball.sks in Resources */ = {isa = PBXBuildFile; fileRef = 034902301C71F55C003B1104 /* Ball.sks */; };
 		03712CE71C6C288F00B32ACD /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 03712CE61C6C288F00B32ACD /* MainMenu.sks */; };
 		03712CE91C6C28B900B32ACD /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03712CE81C6C28B900B32ACD /* MainMenu.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		0335BB4D1C6C245D003F8B57 /* swift-cannonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-cannonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0335BB511C6C245D003F8B57 /* swift_cannonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_cannonUITests.swift; sourceTree = "<group>"; };
 		0335BB531C6C245D003F8B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		034902301C71F55C003B1104 /* Ball.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Ball.sks; sourceTree = "<group>"; };
 		03712CE61C6C288F00B32ACD /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
 		03712CE81C6C28B900B32ACD /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				03712CE81C6C28B900B32ACD /* MainMenu.swift */,
 				0335BB311C6C245D003F8B57 /* GameScene.swift */,
 				0335BB331C6C245D003F8B57 /* GameViewController.swift */,
+				034902301C71F55C003B1104 /* Ball.sks */,
 				0335BB351C6C245D003F8B57 /* Main.storyboard */,
 				0335BB381C6C245D003F8B57 /* Assets.xcassets */,
 				0335BB3A1C6C245D003F8B57 /* LaunchScreen.storyboard */,
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				034902311C71F55C003B1104 /* Ball.sks in Resources */,
 				0335BB301C6C245D003F8B57 /* GameScene.sks in Resources */,
 				0335BB3C1C6C245D003F8B57 /* LaunchScreen.storyboard in Resources */,
 				0335BB391C6C245D003F8B57 /* Assets.xcassets in Resources */,

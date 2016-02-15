@@ -28,6 +28,20 @@ class GameScene: SKScene {
         touchLocation = touches.first!.locationInNode(self)
     }
     
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let ball: SKSpriteNode = SKScene(fileNamed: "Ball")?.childNodeWithName("ball")! as! SKSpriteNode
+        ball.removeFromParent()
+        self.addChild(ball)
+        ball.position = cannon.position
+        ball.zPosition = 0
+        let angleInRadians = Float(cannon.zRotation)
+        let speed = CGFloat(75.0)
+        let vx: CGFloat = CGFloat(cosf(angleInRadians)) * speed
+        let vy: CGFloat = CGFloat(sinf(angleInRadians)) * speed
+        ball.physicsBody?.applyImpulse(CGVectorMake(vx, vy), atPoint: ball.position)
+        
+    }
+    
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
