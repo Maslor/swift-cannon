@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var cannon: SKSpriteNode!
     var touchLocation: CGPoint = CGPointZero
@@ -16,6 +16,7 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         cannon = self.childNodeWithName("cannon") as? SKSpriteNode
+        self.physicsWorld.contactDelegate = self
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -49,5 +50,9 @@ class GameScene: SKScene {
         let percent = touchLocation.x / size.width
         let newAngle = percent * 180 - 180
         cannon?.zRotation = CGFloat(newAngle) * CGFloat(M_PI) / 180.0
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        print("Contact!")
     }
 }
