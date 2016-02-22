@@ -1,4 +1,4 @@
-    //
+//
 //  GameScene.swift
 //  swift-cannon
 //
@@ -12,6 +12,7 @@ let wallMask:UInt32 = 0x1 << 0 // 1
 let ballMask:UInt32 = 0x1 << 1 // 1
 let pegMask:UInt32 = 0x1 << 2 // 4
 let squareMask:UInt32 = 0x1 << 3 // 8
+let orangePegMask:UInt32 = 0x1 << 4 //16
     
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -45,8 +46,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let vx: CGFloat = CGFloat(cosf(angleInRadians)) * speed
         let vy: CGFloat = CGFloat(sinf(angleInRadians)) * speed
         ball.physicsBody?.applyImpulse(CGVectorMake(vx, vy), atPoint: ball.position)
-        ball.physicsBody?.collisionBitMask = wallMask | ballMask | pegMask
-        
+        ball.physicsBody?.collisionBitMask = wallMask | ballMask | pegMask | orangePegMask
+        ball.physicsBody?.contactTestBitMask = ball.physicsBody!.collisionBitMask | squareMask
     }
     
    
@@ -59,6 +60,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        print("Contact!")
+        let ball = (contact.bodyA.categoryBitMask == ballMask) ? contact.bodyA : contact.bodyB
+        let other = (ball == contact.bodyA) ? contact.bodyB : contact.bodyA
+        if other.categoryBitMask == pegMask || other.categoryBitMask == orangePegMask{
+            self.didHitPeg(other)
+        }
+        else if other.categoryBitMask == squareMask {
+            print("hit square!")
+        }
+        else if other.categoryBitMask == wallMask {
+            print("hit wall!")
+        }
+        else if other.categoryBitMask == ballMask {
+            print("hit ball!")
+        }
+    }
+    
+    func didHitPeg(peg:SKPhysicsBody) {
+        let blue = UIColor(red: 0.16, green: 0.73, blue: 0.78, alpha: 1.0)
+        let orange = UIColor(red: 1.0, green: 0.45, blue: 0.0, alpha: 1.0)
+        
+        let flame:SKEmitterNode = SKEmitterNode(fileNamed: "Fire")!
+        flame.position = peg.node!.position
+        flame.particleColor = (peg.categoryBitMask == orangePegMask) ? orange : blue
+        self.addChild(flame)
+        peg.node?.removeFromParent()
     }
 }
