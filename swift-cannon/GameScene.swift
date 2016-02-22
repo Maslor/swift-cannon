@@ -7,7 +7,12 @@
 //
 
 import SpriteKit
-
+    
+let wallMask:UInt32 = 0x1 << 0 // 1
+let ballMask:UInt32 = 0x1 << 1 // 1
+let pegMask:UInt32 = 0x1 << 2 // 4
+let squareMask:UInt32 = 0x1 << 3 // 8
+    
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var cannon: SKSpriteNode!
@@ -40,6 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let vx: CGFloat = CGFloat(cosf(angleInRadians)) * speed
         let vy: CGFloat = CGFloat(sinf(angleInRadians)) * speed
         ball.physicsBody?.applyImpulse(CGVectorMake(vx, vy), atPoint: ball.position)
+        ball.physicsBody?.collisionBitMask = wallMask | ballMask | pegMask
         
     }
     
